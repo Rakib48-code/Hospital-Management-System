@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Tree View for Hospital Patient -->
+    <record id="hospital_patient_action_view_tree" model="ir.ui.view">
+        <field name="name">hospital.patient.tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="contact"/>
+                <field name="ref"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View for Hospital Patient -->
+    <record id="hospital_patient_action_view_search" model="ir.ui.view">
+        <field name="name">hospital.patient.search</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- Updated the domain for searching patients by name (removed incorrect 'ilike' domain) -->
+                <field name="name" string="Patients Name"/>
+                <separator/>
+                <!-- Corrected gender filters to properly filter male/female patients -->
+                <filter string="Male" name="male" domain="[('gender','=','male')]"/>
+                <filter string="Female" name="female" domain="[('gender','=','female')]"/>
+                <searchpanel>
+                    <field name="gender" select="multi" string="Gender"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!-- Form View for Hospital Patient -->
+    <record id="hospital_patient_action_view_form" model="ir.ui.view">
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Patient Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="age"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="contact"/>
+                            <field name="ref"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to Open Patient Views -->
+    <record id="hospital_patient_action_view" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new patient
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="patient_details_main_menu"
+              name="Patients"
+              parent="patient_details_root_menu"
+              action="hospital_patient_action_view"
+              sequence="0"/>
+</odoo>
