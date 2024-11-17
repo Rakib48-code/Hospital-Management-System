@@ -12,3 +12,4 @@ class HospitalPatient(models.Model):
     ], string='Gender')
     contact = fields.Char(string='Contact')
     ref = fields.Char(string='Reference', default='patients')
+    active = fields.Boolean('Active', default=True)
