@@ -81,4 +81,6 @@
               parent="patient_details_root_menu"
               action="hospital_patient_action_view"
               sequence="0"/>
+
+
 </odoo>
