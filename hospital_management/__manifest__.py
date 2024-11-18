@@ -13,7 +13,7 @@
         - Billing and Payments
     """,
     'author': 'Rakib Hasan',
-    'depends': ['base'],
+    'depends': ['base','mail'],
     'data': [
         'views/hospital_menu_view.xml',
         'views/patient_views.xml',
