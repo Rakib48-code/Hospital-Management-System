@@ -13,10 +13,12 @@
         - Billing and Payments
     """,
     'author': 'Rakib Hasan',
-    'depends': ['base','mail'],
+    'depends': ['base', 'mail'],
     'data': [
         'views/hospital_menu_view.xml',
+        'views/appointment_view.xml',
         'views/patient_views.xml',
+        'views/female_patient_view.xml',
         'security/ir.model.access.csv',
     ],
     'installable': True,
