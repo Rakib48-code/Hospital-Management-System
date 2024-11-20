@@ -2,6 +2,7 @@
     'name': 'Hospital Management System',
     'category': 'Healthcare',
     'version': '1.0',
+    'sequence': '-100',
     'summary': 'Manage all hospital operations such as appointments, patient records, and medical history.',
     'description': """
         A comprehensive system for managing hospitals, including features like:
