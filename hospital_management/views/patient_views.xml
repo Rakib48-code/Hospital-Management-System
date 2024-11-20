@@ -25,7 +25,7 @@
                 <!-- Updated the domain for searching patients by name (removed incorrect 'ilike' domain) -->
                 <field name="name" string="Patients Name"/>
                 <separator/>
-                <filter string="Patients" name="patients" domain="[('active', '=', True)]"/>
+                <filter string="Patients Name" name="patients" domain="[('active', '=', True)]"/>
                 <!-- Corrected gender filters to properly filter male/female patients -->
                 <filter string="Male" name="male" domain="[('gender','=','male')]"/>
                 <filter string="Female" name="female" domain="[('gender','=','female')]"/>
@@ -50,13 +50,14 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" placeholder="Patient Name"/>
+                            <field name="name" placeholder="e.g. Patient Name"/>
                         </h1>
                     </div>
                     <group>
                         <group>
                             <field name="age"/>
                             <field name="gender"/>
+                            <field name="appointment_id"/>
                         </group>
                         <group>
                             <field name="contact"/>
