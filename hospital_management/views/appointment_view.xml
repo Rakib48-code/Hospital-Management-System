@@ -10,6 +10,7 @@
                 <field name="patient_id"/>
                 <field name="appointment_name"/>
                 <field name="booking_date"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
@@ -20,7 +21,8 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <search>
-
+                <field name="patient_id"/>
+                <field name="appointment_name"/>
             </search>
         </field>
     </record>
@@ -30,6 +32,15 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"
+                           statusbar_visible="draft,in_consultation,done"/>
+                    <button name="action_test" string="Test Button" type="object"
+                            help="this is for appointment model?" class="oe_highlight" confirm="are you sure open it?"/>
+                    <button name="%(hospital_management.hospital_patient_action_view)d" string="Action Button"
+                            type="action" help="this is for patirnt model?" class="oe_highlight"
+                            confirm="are you sure open it?"/>
+                </header>
                 <sheet>
                     <!-- Main Content -->
                     <group>
